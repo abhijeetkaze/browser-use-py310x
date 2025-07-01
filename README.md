@@ -6,6 +6,7 @@
 
 <h1 align="center">Enable AI to control your browser 🤖</h1>
 
+
 [![GitHub stars](https://img.shields.io/github/stars/gregpr07/browser-use?style=social)](https://github.com/gregpr07/browser-use/stargazers)
 [![Discord](https://img.shields.io/discord/1303749220842340412?color=7289DA&label=Discord&logo=discord&logoColor=white)](https://link.browser-use.com/discord)
 [![Cloud](https://img.shields.io/badge/Cloud-☁️-blue)](https://cloud.browser-use.com)
@@ -23,6 +24,14 @@
 ## ⚠️ Note
 
 **This is a modified version of [browser-use](https://github.com/browser-use/browser-use) to support Python 3.10.**
+  
+[![PyPI version](https://img.shields.io/pypi/v/browser-use-py310x)](https://pypi.org/project/browser-use-py310x/)
+[![Python Versions](https://img.shields.io/pypi/pyversions/browser-use-py310x)](https://pypi.org/project/browser-use-py310x/)
+[![Downloads](https://static.pepy.tech/badge/browser-use-py310x)](https://pepy.tech/project/browser-use-py310x)
+[![GitHub stars](https://img.shields.io/github/stars/abhijeetkaze/browser-use?style=social)](https://github.com/abhijeetkaze/browser-use/stargazers)
+[![Last Commit](https://img.shields.io/github/last-commit/abhijeetkaze/browser-use)](https://github.com/abhijeetkaze/browser-use/commits/main)
+
+A minimal fork of `browser-use` with compatibility fixes for Python 3.10+.  
 
 - Maintainer for Python 3.10 version: **[Abhijeet Mohanta](https://github.com/abhijeetkaze)**
 - `bubus` is mocked to enable compatibility with Python 3.10.
