@@ -1,10 +1,10 @@
 [project]
-name = "browser-use"
+name = "browser-use-py310x"
 description = "Make websites accessible for AI agents"
-authors = [{ name = "Gregor Zunic" }]
+authors = [{ name = "Gregor Zunic" },{ name = "Abhijeet Mohanta" }]
 version = "0.4.2"
 readme = "README.md"
-requires-python = ">=3.11,<4.0"
+requires-python = ">=3.10,<4.0"
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
@@ -13,7 +13,7 @@ classifiers = [
 dependencies = [
     "aiofiles>=24.1.0",
     "anyio>=4.9.0",
-    "bubus>=1.2.2",
+    #"bubus>=1.2.1",
     "google-api-core>=2.25.0",
     "httpx>=0.28.1",
     "markdownify==1.1.0",
@@ -72,9 +72,9 @@ eval = [
     "psutil>=7.0.0",
     "datamodel-code-generator>=0.26.0",
 ]
-all = [
-    "browser-use[cli,examples,aws]",
-]
+# all = [
+#     "browser-use[cli,examples,aws]",
+# ]
 
 # will prefer to use local source code checked out in ../../browser-use (if present) instead of pypi browser-use package
 # [tool.uv.sources]
@@ -82,7 +82,7 @@ all = [
 
 
 [project.urls]
-Repository = "https://github.com/browser-use/browser-use"
+Repository = "https://github.com/abhijeet-kaze/browser-use"
 
 [project.scripts]
 browseruse = "browser_use.cli:main"
