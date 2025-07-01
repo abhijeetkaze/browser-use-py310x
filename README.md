@@ -20,6 +20,14 @@
 
 🌤️ Skip the setup - try our <b>hosted version</b> for instant browser automation! <b>[Try the cloud ☁︎](https://cloud.browser-use.com)</b>.
 
+## ⚠️ Note
+
+**This is a modified version of [browser-use](https://github.com/browser-use/browser-use) to support Python 3.10.**
+
+- Maintainer for Python 3.10 version: **[Abhijeet Mohanta](https://github.com/abhijeetkaze)**
+- `bubus` is mocked to enable compatibility with Python 3.10.
+- Cloud actions are **not supported** in this version.
+
 # Quick start
 
 With pip (Python>=3.11):
