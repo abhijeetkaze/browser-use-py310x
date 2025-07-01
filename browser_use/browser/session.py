@@ -13,8 +13,11 @@ import time
 from dataclasses import dataclass
 from functools import wraps
 from pathlib import Path
-from typing import Any, Self
+from typing import Any
+from typing_extensions import Self
 from urllib.parse import urlparse
+
+from ..mocked.asyncio_timeout import async_timeout
 
 from browser_use.config import CONFIG
 from browser_use.utils import _log_pretty_path, _log_pretty_url
@@ -985,7 +988,7 @@ class BrowserSession(BaseModel):
 
 			# if a user_data_dir is provided, launch a persistent context with that user_data_dir
 			try:
-				async with asyncio.timeout(self.browser_profile.timeout / 1000):
+				async with async_timeout(self.browser_profile.timeout / 1000):
 					try:
 						assert self.playwright is not None, 'playwright instance is None'
 						self.browser_context = await self.playwright.chromium.launch_persistent_context(
@@ -1017,7 +1020,7 @@ class BrowserSession(BaseModel):
 				# Force recreation of the playwright object
 				self.playwright = await self._start_global_playwright_subprocess(is_stealth=self.browser_profile.stealth)
 				# Retry the operation with the new playwright instance
-				async with asyncio.timeout(self.browser_profile.timeout / 1000):
+				async with async_timeout(self.browser_profile.timeout / 1000):
 					assert self.playwright is not None, 'playwright instance is None'
 					self.browser_context = await self.playwright.chromium.launch_persistent_context(
 						**self.browser_profile.kwargs_for_launch_persistent_context().model_dump()

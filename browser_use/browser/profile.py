@@ -4,7 +4,8 @@ from enum import Enum
 from functools import cache
 from pathlib import Path
 from re import Pattern
-from typing import Annotated, Any, Literal, Self
+from typing import Annotated, Any, Literal
+from typing_extensions import Self
 from urllib.parse import urlparse
 
 from pydantic import AfterValidator, AliasChoices, BaseModel, ConfigDict, Field, model_validator

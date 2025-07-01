@@ -14,6 +14,8 @@ from sys import stderr
 from typing import Any, Literal, ParamSpec, TypeVar
 from urllib.parse import urlparse
 
+from .mocked.asyncio_timeout import async_timeout
+
 import portalocker
 from dotenv import load_dotenv
 
@@ -783,7 +785,7 @@ def retry(
 				else:
 					# Regular asyncio semaphore
 					try:
-						async with asyncio.timeout(sem_timeout):
+						async with async_timeout(sem_timeout):
 							await semaphore.acquire()
 							semaphore_acquired = True
 					except TimeoutError:
@@ -821,7 +823,7 @@ def retry(
 				for attempt in range(retries + 1):
 					try:
 						# Execute with per-attempt timeout
-						async with asyncio.timeout(timeout):
+						async with async_timeout(timeout):
 							return await func(*args, **kwargs)
 
 					except Exception as e:

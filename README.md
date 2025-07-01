@@ -27,6 +27,8 @@
 - Maintainer for Python 3.10 version: **[Abhijeet Mohanta](https://github.com/abhijeetkaze)**
 - `bubus` is mocked to enable compatibility with Python 3.10.
 - Cloud actions are **not supported** in this version.
+- from typing_extensions import Self (for Python 3.10 compatibility) is used in place of Self from typing.
+- async with asyncio.timeout replaced with async_timeout (custom impl of async timeout) to support Python 3.10.
 
 # Quick start
 
