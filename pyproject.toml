@@ -2,7 +2,7 @@
 name = "browser-use-py310x"
 description = "Make websites accessible for AI agents"
 authors = [{ name = "Gregor Zunic" },{ name = "Abhijeet Mohanta" }]
-version = "0.4.2"
+version = "0.4.2.1"
 readme = "README.md"
 requires-python = ">=3.10,<4.0"
 classifiers = [
