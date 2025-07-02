@@ -28,7 +28,7 @@ from browser_use.tokens.service import TokenCost
 load_dotenv()
 
 # from lmnr.sdk.decorators import observe
-from ..mocked.bubus import EventBus
+from bubus import EventBus
 from pydantic import ValidationError
 from uuid_extensions import uuid7str
 
@@ -440,7 +440,7 @@ class Agent(Generic[Context, AgentStructuredOutput]):
 		if self.enable_cloud_sync or cloud_sync is not None:
 			self.cloud_sync = cloud_sync or CloudSync()
 			# Register cloud sync handler
-			# self.eventbus.on('*', self.cloud_sync.handle_event)
+			self.eventbus.on('*', self.cloud_sync.handle_event)
 
 		if self.settings.save_conversation_path:
 			self.settings.save_conversation_path = Path(self.settings.save_conversation_path).expanduser().resolve()
@@ -823,7 +823,7 @@ class Agent(Generic[Context, AgentStructuredOutput]):
 
 				# Emit CreateAgentStepEvent
 				step_event = CreateAgentStepEvent.from_agent_step(self, model_output, result, actions_data, browser_state_summary)
-				# self.eventbus.dispatch(step_event)
+				self.eventbus.dispatch(step_event)
 
 	@time_execution_async('--handle_step_error (agent)')
 	async def _handle_step_error(self, error: Exception) -> list[ActionResult]:
@@ -1125,10 +1125,10 @@ class Agent(Generic[Context, AgentStructuredOutput]):
 			self._task_start_time = self._session_start_time  # Initialize task start time
 
 			# Emit CreateAgentSessionEvent at the START of run()
-			# self.eventbus.dispatch(CreateAgentSessionEvent.from_agent(self))
+			self.eventbus.dispatch(CreateAgentSessionEvent.from_agent(self))
 
 			# Emit CreateAgentTaskEvent at the START of run()
-			# self.eventbus.dispatch(CreateAgentTaskEvent.from_agent(self))
+			self.eventbus.dispatch(CreateAgentTaskEvent.from_agent(self))
 
 			# Execute initial actions if provided
 			if self.initial_actions:
@@ -1242,7 +1242,7 @@ class Agent(Generic[Context, AgentStructuredOutput]):
 			# not when they are completed
 
 			# Emit UpdateAgentTaskEvent at the END of run() with final task state
-			# self.eventbus.dispatch(UpdateAgentTaskEvent.from_agent(self))
+			self.eventbus.dispatch(UpdateAgentTaskEvent.from_agent(self))
 
 			# Generate GIF if needed before stopping event bus
 			if self.settings.generate_gif:
@@ -1254,7 +1254,7 @@ class Agent(Generic[Context, AgentStructuredOutput]):
 
 				# Emit output file generated event for GIF
 				output_event = await CreateAgentOutputFileEvent.from_agent_and_file(self, output_path)
-				# self.eventbus.dispatch(output_event)
+				self.eventbus.dispatch(output_event)
 
 			# Wait briefly for cloud auth to start and print the URL, but don't block for completion
 			if self.enable_cloud_sync and hasattr(self, 'cloud_sync'):
@@ -1269,7 +1269,7 @@ class Agent(Generic[Context, AgentStructuredOutput]):
 
 			# Stop the event bus gracefully, waiting for all events to be processed
 			# Use longer timeout to avoid deadlocks in tests with multiple agents
-			# await self.eventbus.stop(timeout=10.0)
+			await self.eventbus.stop(timeout=10.0)
 
 			await self.close()
 

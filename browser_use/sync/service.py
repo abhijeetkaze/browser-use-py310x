@@ -8,7 +8,7 @@ import logging
 
 import anyio
 import httpx
-from ..mocked.bubus import BaseEvent
+from bubus import BaseEvent
 
 from browser_use.config import CONFIG
 from browser_use.sync.auth import TEMP_USER_ID, DeviceAuthClient

@@ -4,7 +4,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 import anyio
-from ..mocked.bubus import BaseEvent
+from bubus import BaseEvent
 from pydantic import Field, field_validator
 from uuid_extensions import uuid7str
 
