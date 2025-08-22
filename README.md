@@ -2,7 +2,7 @@
 
 **This is a modified version of [browser-use](https://github.com/browser-use/browser-use) to support Python 3.10.**
   
-[![PyPI version](https://img.shields.io/pypi/v/browser-use-py310x)](https://pypi.org/project/browser-use-py310x/) Browser-use-py310x
+[![PyPI version](https://img.shields.io/pypi/v/browser-use-py310x)](https://pypi.org/project/browser-use-py310x/)
 [![Python Versions](https://img.shields.io/pypi/pyversions/browser-use-py310x)](https://pypi.org/project/browser-use-py310x/)
 [![Downloads](https://static.pepy.tech/badge/browser-use-py310x)](https://pepy.tech/project/browser-use-py310x)
 [![GitHub stars](https://img.shields.io/github/stars/abhijeetkaze/browser-use?style=social)](https://github.com/abhijeetkaze/browser-use/stargazers)
