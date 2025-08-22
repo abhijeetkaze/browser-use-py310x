@@ -1,3 +1,22 @@
+## ⚠️ Note
+
+**This is a modified version of [browser-use](https://github.com/browser-use/browser-use) to support Python 3.10.**
+  
+[![PyPI version](https://img.shields.io/pypi/v/browser-use-py310x)](https://pypi.org/project/browser-use-py310x/) Browser-use-py310x
+[![Python Versions](https://img.shields.io/pypi/pyversions/browser-use-py310x)](https://pypi.org/project/browser-use-py310x/)
+[![Downloads](https://static.pepy.tech/badge/browser-use-py310x)](https://pepy.tech/project/browser-use-py310x)
+[![GitHub stars](https://img.shields.io/github/stars/abhijeetkaze/browser-use?style=social)](https://github.com/abhijeetkaze/browser-use/stargazers)
+[![Last Commit](https://img.shields.io/github/last-commit/abhijeetkaze/browser-use)](https://github.com/abhijeetkaze/browser-use/commits/main)
+
+A minimal fork of `browser-use` with compatibility fixes for Python 3.10+.  
+
+- Maintainer for Python 3.10 version: **[Abhijeet Mohanta](https://github.com/abhijeetkaze)**
+- `bubus` is mocked to enable compatibility with Python 3.10.
+- Cloud actions are **not supported** in this version.
+- from typing_extensions import Self (for Python 3.10 compatibility) is used in place of Self from typing.
+- async with asyncio.timeout replaced with async_timeout (custom impl of async timeout) to support Python 3.10.
+
+
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./static/browser-use-dark.png">
   <source media="(prefers-color-scheme: light)" srcset="./static/browser-use.png">
@@ -20,24 +39,6 @@
 💡 See what others are building and share your projects in our [Discord](https://link.browser-use.com/discord)! Want Swag? Check out our [Merch store](https://browsermerch.com).
 
 🌤️ Skip the setup - try our <b>hosted version</b> for instant browser automation! <b>[Try the cloud ☁︎](https://cloud.browser-use.com)</b>.
-
-## ⚠️ Note
-
-**This is a modified version of [browser-use](https://github.com/browser-use/browser-use) to support Python 3.10.**
-  
-[![PyPI version](https://img.shields.io/pypi/v/browser-use-py310x)](https://pypi.org/project/browser-use-py310x/)
-[![Python Versions](https://img.shields.io/pypi/pyversions/browser-use-py310x)](https://pypi.org/project/browser-use-py310x/)
-[![Downloads](https://static.pepy.tech/badge/browser-use-py310x)](https://pepy.tech/project/browser-use-py310x)
-[![GitHub stars](https://img.shields.io/github/stars/abhijeetkaze/browser-use?style=social)](https://github.com/abhijeetkaze/browser-use/stargazers)
-[![Last Commit](https://img.shields.io/github/last-commit/abhijeetkaze/browser-use)](https://github.com/abhijeetkaze/browser-use/commits/main)
-
-A minimal fork of `browser-use` with compatibility fixes for Python 3.10+.  
-
-- Maintainer for Python 3.10 version: **[Abhijeet Mohanta](https://github.com/abhijeetkaze)**
-- `bubus` is mocked to enable compatibility with Python 3.10.
-- Cloud actions are **not supported** in this version.
-- from typing_extensions import Self (for Python 3.10 compatibility) is used in place of Self from typing.
-- async with asyncio.timeout replaced with async_timeout (custom impl of async timeout) to support Python 3.10.
 
 # Quick start
 
